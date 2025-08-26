@@ -6,8 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('maxValue').value = result.maxValue || 1000;
   });
   
-  // Set up event listener for the fill button
+  // Set up event listeners for the buttons
   document.getElementById('fillButton').addEventListener('click', fillFields);
+  document.getElementById('clearButton').addEventListener('click', clearFields);
 });
 
 // Function to fill form fields with random numbers
@@ -41,6 +42,37 @@ async function fillFields() {
     });
     
     status.textContent = 'Fields filled successfully!';
+    setTimeout(() => {
+      status.textContent = '';
+    }, 2000);
+  } catch (error) {
+    console.error('Error:', error);
+    status.textContent = 'Error: ' + error.message;
+  }
+}
+
+// Function to clear all input fields
+async function clearFields() {
+  // Update status
+  const status = document.getElementById('status');
+  status.textContent = 'Clearing fields...';
+  
+  try {
+    // Get the active tab
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    
+    // Inject the content script if not already injected
+    await chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      files: ['content.js']
+    });
+    
+    // Send message to content script to clear fields
+    chrome.tabs.sendMessage(tab.id, { 
+      action: 'clearFields'
+    });
+    
+    status.textContent = 'Fields cleared successfully!';
     setTimeout(() => {
       status.textContent = '';
     }, 2000);
