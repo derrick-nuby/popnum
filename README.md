@@ -4,10 +4,11 @@ A Chrome extension that populates form fields with random numbers within a confi
 
 ## Features
 
-- ✅ **Populate Fields**: Fill input fields with random numbers within a configurable range
+- ✅ **Populate Fields**: Fill all input fields with random numbers within a configurable range
 - ✅ **Clear Fields**: Clear all input fields with a single click
 - ⚙️ **Configurable Range**: Set minimum and maximum values (default: 500-1000)
 - 💾 **Persistent Settings**: Configuration is saved between sessions
+- ⌨️ **Keyboard Shortcuts**: Use keyboard shortcuts for quick actions
 - 🌐 **Wide Compatibility**: Works on most websites with form fields
 
 ## Installation
@@ -23,15 +24,37 @@ A Chrome extension that populates form fields with random numbers within a confi
 
 1. Click on the extension icon in the Chrome toolbar
 2. Set your desired minimum and maximum values (default is 500-1000)
-3. Click "Fill Fields" to populate all text and number input fields with random numbers
-4. Click "Clear Fields" to clear all text and number input fields
+3. Click "Fill Fields" to populate **all input fields** (text, password, email, etc.) with random numbers
+4. Click "Clear Fields" to clear all input fields
+
+### Keyboard Shortcuts
+
+- **Fill Fields**: `Ctrl+Shift+K`
+- **Clear Fields**: `Ctrl+Shift+J`
+
+To customize these shortcuts:
+1. Go to `chrome://extensions/`
+2. Click the menu button (three dots) next to the PopNum extension
+3. Select "Keyboard shortcuts"
+4. Modify the shortcuts as desired
+
+## Supported Input Types
+
+The extension fills these input types:
+- Text inputs (`<input type="text">`)
+- Password inputs (`<input type="password">`)
+- Email inputs (`<input type="email">`)
+- Search inputs (`<input type="search">`)
+- Telephone inputs (`<input type="tel">`)
+- URL inputs (`<input type="url">`)
+- Number inputs (`<input type="number">`)
+- Inputs without a type attribute (`<input>`)
 
 ## Future Features
 
 We're planning to add these features in future releases:
 
 ### Planned Features
-
 - 🔤 **Text Generation**: Fill fields with realistic placeholder text (names, addresses, etc.)
 - 🎨 **Custom Patterns**: Define custom patterns for different field types
 - 📋 **Presets**: Save and load frequently used configurations
@@ -42,12 +65,12 @@ We're planning to add these features in future releases:
 - 🌍 **Multi-language**: Support for multiple languages in text generation
 
 ### Advanced Features
-
 - 📊 **Data Statistics**: Generate reports on populated data
 - 🔗 **API Integration**: Connect to external APIs for realistic data generation
 - 🎛️ **Batch Operations**: Process multiple tabs or windows simultaneously
 - 📝 **Template System**: Create and save form templates for repeated use
 - 🤖 **AI-Powered**: Use AI to generate contextually relevant data
+- 🎮 **Advanced Shortcut Customization**: In-app shortcut configuration
 
 ## Files
 
@@ -56,11 +79,11 @@ We're planning to add these features in future releases:
 - `popup.css` - Styling for the popup interface
 - `popup.js` - Logic for handling user input and communicating with content script
 - `content.js` - Script that runs on webpages to fill/clear input fields
+- `background.js` - Service worker that handles keyboard shortcuts
 
 ## Permissions
 
 This extension requires minimal permissions:
-
 - `activeTab` - To interact with the currently active tab
 - `scripting` - To inject content scripts into web pages
 - `storage` - To save your configuration settings
@@ -72,7 +95,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Author
 
 **Derrick Nuby**
-
 - Website: [https://derrick.rw/](https://derrick.rw/)
 - GitHub: [https://github.com/Derrick-Nuby](https://github.com/Derrick-Nuby)
 

@@ -16,5 +16,22 @@
     "16": "icon16.png",
     "48": "icon48.png",
     "128": "icon128.png"
+  },
+  "commands": {
+    "fill_fields": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+K"
+      },
+      "description": "Fill form fields with random numbers"
+    },
+    "clear_fields": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+J"
+      },
+      "description": "Clear all form fields"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
   }
 }
